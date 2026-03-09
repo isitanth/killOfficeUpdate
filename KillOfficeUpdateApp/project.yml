@@ -1,0 +1,31 @@
+name: KillOfficeUpdateApp
+options:
+  bundleIdPrefix: com.user
+  deploymentTarget:
+    macOS: "26.0"
+  xcodeVersion: "26.3"
+settings:
+  SWIFT_VERSION: "6"
+  MACOSX_DEPLOYMENT_TARGET: "26.0"
+targets:
+  KillOfficeUpdateApp:
+    type: application
+    platform: macOS
+    sources:
+      - KillOfficeUpdateApp
+    settings:
+      PRODUCT_BUNDLE_IDENTIFIER: com.user.KillOfficeUpdateApp
+      INFOPLIST_GENERATION_MODE: GeneratedFile
+      PRODUCT_NAME: KillOfficeUpdateApp
+      GENERATE_INFOPLIST_FILE: true
+      ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+  KillOfficeUpdateAppTests:
+    type: bundle.unit-test
+    platform: macOS
+    sources:
+      - KillOfficeUpdateAppTests
+    dependencies:
+      - target: KillOfficeUpdateApp
+    settings:
+      PRODUCT_BUNDLE_IDENTIFIER: com.user.KillOfficeUpdateAppTests
+      GENERATE_INFOPLIST_FILE: true

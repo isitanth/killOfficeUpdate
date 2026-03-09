@@ -1,0 +1,410 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		251AD557625BF0C02BA407A3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43EAA4B0E45291E6571B4A5 /* ContentView.swift */; };
+		28BA864A67880EC71786C8C6 /* ShellExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF5E1DDC9E255316EF23B04 /* ShellExecutor.swift */; };
+		3959556F45648E3252C417BE /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F065A89C7B14D001054A80B /* AppViewModel.swift */; };
+		6A8013F964956444688B2770 /* KillOfficeUpdateApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6FEF12E5F94F87C1F6327E1 /* KillOfficeUpdateApp.swift */; };
+		A1D97C4755DC0AA9A58F2F1E /* AppViewModelCleanUpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1094FA0D593921B00A1928B4 /* AppViewModelCleanUpTests.swift */; };
+		DF5C75E6CCE96FAAF49223DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 735E9A0B79EE28AAB2334B1D /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8341F851F1F4D23133F5C97D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AE099C5027D67202651D9587 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9C573A601147067CF2AFA5C9;
+			remoteInfo = KillOfficeUpdateApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1094FA0D593921B00A1928B4 /* AppViewModelCleanUpTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewModelCleanUpTests.swift; sourceTree = "<group>"; };
+		1EF5E1DDC9E255316EF23B04 /* ShellExecutor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShellExecutor.swift; sourceTree = "<group>"; };
+		37320269B26A89EA0E0FF082 /* KillOfficeUpdateAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KillOfficeUpdateAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6F065A89C7B14D001054A80B /* AppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewModel.swift; sourceTree = "<group>"; };
+		735E9A0B79EE28AAB2334B1D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		82C797E626C8FA304549850E /* KillOfficeUpdateApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KillOfficeUpdateApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C6FEF12E5F94F87C1F6327E1 /* KillOfficeUpdateApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KillOfficeUpdateApp.swift; sourceTree = "<group>"; };
+		E43EAA4B0E45291E6571B4A5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		08E1FD696F7633E320FD32FA /* KillOfficeUpdateApp */ = {
+			isa = PBXGroup;
+			children = (
+				6F065A89C7B14D001054A80B /* AppViewModel.swift */,
+				735E9A0B79EE28AAB2334B1D /* Assets.xcassets */,
+				E43EAA4B0E45291E6571B4A5 /* ContentView.swift */,
+				C6FEF12E5F94F87C1F6327E1 /* KillOfficeUpdateApp.swift */,
+				1EF5E1DDC9E255316EF23B04 /* ShellExecutor.swift */,
+			);
+			path = KillOfficeUpdateApp;
+			sourceTree = "<group>";
+		};
+		B3DF26738FF146CCEE9F241B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				82C797E626C8FA304549850E /* KillOfficeUpdateApp.app */,
+				37320269B26A89EA0E0FF082 /* KillOfficeUpdateAppTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F1D8638668C495704564351C /* KillOfficeUpdateAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				1094FA0D593921B00A1928B4 /* AppViewModelCleanUpTests.swift */,
+			);
+			path = KillOfficeUpdateAppTests;
+			sourceTree = "<group>";
+		};
+		F360A81926A30CB8C3612A47 = {
+			isa = PBXGroup;
+			children = (
+				08E1FD696F7633E320FD32FA /* KillOfficeUpdateApp */,
+				F1D8638668C495704564351C /* KillOfficeUpdateAppTests */,
+				B3DF26738FF146CCEE9F241B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3F05F35002D9A60CD3BBA83F /* KillOfficeUpdateAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0AB4C00EA36B7BFC422D7B12 /* Build configuration list for PBXNativeTarget "KillOfficeUpdateAppTests" */;
+			buildPhases = (
+				E84F42EE6574E0E52B09F2CD /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				615CE4A525051A54069780F7 /* PBXTargetDependency */,
+			);
+			name = KillOfficeUpdateAppTests;
+			packageProductDependencies = (
+			);
+			productName = KillOfficeUpdateAppTests;
+			productReference = 37320269B26A89EA0E0FF082 /* KillOfficeUpdateAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		9C573A601147067CF2AFA5C9 /* KillOfficeUpdateApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5D763FB667930F8D037FCCDF /* Build configuration list for PBXNativeTarget "KillOfficeUpdateApp" */;
+			buildPhases = (
+				042D2AC25385E65481762D2B /* Sources */,
+				EED84EEFBEFABD23BE5AEFED /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KillOfficeUpdateApp;
+			packageProductDependencies = (
+			);
+			productName = KillOfficeUpdateApp;
+			productReference = 82C797E626C8FA304549850E /* KillOfficeUpdateApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AE099C5027D67202651D9587 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 2630;
+				TargetAttributes = {
+				};
+			};
+			buildConfigurationList = B2BF906FA8D63D04120808F9 /* Build configuration list for PBXProject "KillOfficeUpdateApp" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = F360A81926A30CB8C3612A47;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = B3DF26738FF146CCEE9F241B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9C573A601147067CF2AFA5C9 /* KillOfficeUpdateApp */,
+				3F05F35002D9A60CD3BBA83F /* KillOfficeUpdateAppTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EED84EEFBEFABD23BE5AEFED /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DF5C75E6CCE96FAAF49223DF /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		042D2AC25385E65481762D2B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3959556F45648E3252C417BE /* AppViewModel.swift in Sources */,
+				251AD557625BF0C02BA407A3 /* ContentView.swift in Sources */,
+				6A8013F964956444688B2770 /* KillOfficeUpdateApp.swift in Sources */,
+				28BA864A67880EC71786C8C6 /* ShellExecutor.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E84F42EE6574E0E52B09F2CD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1D97C4755DC0AA9A58F2F1E /* AppViewModelCleanUpTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		615CE4A525051A54069780F7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9C573A601147067CF2AFA5C9 /* KillOfficeUpdateApp */;
+			targetProxy = 8341F851F1F4D23133F5C97D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		1819EE92B0DDFEE6A1EBB8CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 6;
+			};
+			name = Debug;
+		};
+		1F9FD85F46F0EAF9B8797B9B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.user.KillOfficeUpdateAppTests;
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KillOfficeUpdateApp.app/Contents/MacOS/KillOfficeUpdateApp";
+			};
+			name = Release;
+		};
+		5C23728B547D1F8475C68832 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_GENERATION_MODE = GeneratedFile;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.user.KillOfficeUpdateApp;
+				PRODUCT_NAME = KillOfficeUpdateApp;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		6C8B088B860E17744D9B70E6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.user.KillOfficeUpdateAppTests;
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KillOfficeUpdateApp.app/Contents/MacOS/KillOfficeUpdateApp";
+			};
+			name = Debug;
+		};
+		84002277816EB72A6C5FDEDC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_GENERATION_MODE = GeneratedFile;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.user.KillOfficeUpdateApp;
+				PRODUCT_NAME = KillOfficeUpdateApp;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		B869CC7114D64115623717C2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 6;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0AB4C00EA36B7BFC422D7B12 /* Build configuration list for PBXNativeTarget "KillOfficeUpdateAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6C8B088B860E17744D9B70E6 /* Debug */,
+				1F9FD85F46F0EAF9B8797B9B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		5D763FB667930F8D037FCCDF /* Build configuration list for PBXNativeTarget "KillOfficeUpdateApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5C23728B547D1F8475C68832 /* Debug */,
+				84002277816EB72A6C5FDEDC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		B2BF906FA8D63D04120808F9 /* Build configuration list for PBXProject "KillOfficeUpdateApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1819EE92B0DDFEE6A1EBB8CD /* Debug */,
+				B869CC7114D64115623717C2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AE099C5027D67202651D9587 /* Project object */;
+}

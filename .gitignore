@@ -1,0 +1,15 @@
+# Xcode
+build/
+DerivedData/
+*.xcuserstate
+xcuserdata/
+*.xcworkspace/xcuserdata/
+
+# DMG output
+*.dmg
+
+# Local Claude settings
+.claude/*.local.*
+
+# OS
+.DS_Store
