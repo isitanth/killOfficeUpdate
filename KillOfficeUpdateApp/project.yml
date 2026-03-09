@@ -29,3 +29,19 @@ targets:
     settings:
       PRODUCT_BUNDLE_IDENTIFIER: com.user.KillOfficeUpdateAppTests
       GENERATE_INFOPLIST_FILE: true
+schemes:
+  KillOfficeUpdateApp:
+    build:
+      targets:
+        KillOfficeUpdateApp: all
+    test:
+      targets:
+        - KillOfficeUpdateAppTests
+  KillOfficeUpdateAppTests:
+    build:
+      targets:
+        KillOfficeUpdateApp: all
+        KillOfficeUpdateAppTests: [test]
+    test:
+      targets:
+        - KillOfficeUpdateAppTests
