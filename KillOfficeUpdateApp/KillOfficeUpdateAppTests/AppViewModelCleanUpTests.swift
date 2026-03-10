@@ -254,6 +254,28 @@ final class AppViewModelCleanUpTests: XCTestCase {
         XCTAssertFalse(vm.isNotifyEnabled)
     }
 
+    // MARK: - Notify flag reading
+
+    func test_refreshStatus_readsNotifyFlagEnabled() {
+        FileManager.default.createFile(atPath: notifyFlagPath, contents: nil)
+        let vm = makeViewModel()
+        vm.isNotifyEnabled = false
+
+        vm.refreshStatus()
+
+        XCTAssertTrue(vm.isNotifyEnabled, "Should read flag file as enabled")
+    }
+
+    func test_refreshStatus_readsNotifyFlagDisabled() {
+        // No flag file exists
+        let vm = makeViewModel()
+        vm.isNotifyEnabled = true
+
+        vm.refreshStatus()
+
+        XCTAssertFalse(vm.isNotifyEnabled, "Should read absent flag as disabled")
+    }
+
     func test_toggleNotifications_createsParentDirectory() {
         let nestedPath = tmpDir.appendingPathComponent("sub/dir/killmau-notify").path
         let vm = AppViewModel(

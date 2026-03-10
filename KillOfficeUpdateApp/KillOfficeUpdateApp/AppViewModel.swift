@@ -146,6 +146,8 @@ done
         isRunning = pgrepResult.exitCode == 0
             && !pgrepResult.output.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
 
+        isNotifyEnabled = FileManager.default.fileExists(atPath: notifyFlagPath)
+
         updateStatusMessage()
     }
 
