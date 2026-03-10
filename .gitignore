@@ -8,10 +8,17 @@ xcuserdata/
 # DMG output
 *.dmg
 
-# Local Claude settings
-.claude/*.local.*
+# Development docs and plans
+docs/plans/
+docs/nights-watch-review.md
+task.md
+rules.md
 
-# Nights Watch logs
+# Claude Code
+.claude/
+CLAUDE.md
+
+# Logs
 logs/
 
 # OS
