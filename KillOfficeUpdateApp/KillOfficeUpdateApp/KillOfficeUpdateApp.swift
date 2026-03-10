@@ -7,6 +7,6 @@ struct KillOfficeUpdateApp: App {
             ContentView()
         }
         .windowResizability(.contentSize)
-        .defaultSize(width: 400, height: 550)
+        .defaultSize(width: 400, height: 580)
     }
 }

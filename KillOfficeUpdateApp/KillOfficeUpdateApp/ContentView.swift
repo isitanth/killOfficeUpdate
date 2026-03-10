@@ -9,10 +9,11 @@ struct ContentView: View {
             actionButtons
             logViewer
             cleanUpButton
+            notificationsToggle
             statusBar
         }
         .padding()
-        .frame(width: 400, height: 550)
+        .frame(width: 400, height: 580)
     }
 
     // MARK: - Status Header
@@ -122,6 +123,21 @@ struct ContentView: View {
             .controlSize(.small)
             .disabled(!viewModel.isInstalled || viewModel.isBusy)
         }
+    }
+
+    // MARK: - Notifications Toggle
+
+    private var notificationsToggle: some View {
+        Toggle(isOn: Binding(
+            get: { viewModel.isNotifyEnabled },
+            set: { _ in viewModel.toggleNotifications() }
+        )) {
+            Label("Kill Notifications", systemImage: "bell.badge")
+                .font(.caption)
+        }
+        .controlSize(.small)
+        .toggleStyle(.switch)
+        .disabled(!viewModel.isInstalled || viewModel.isBusy)
     }
 
     // MARK: - Status Bar
