@@ -328,6 +328,27 @@ done
         isBusy = false
     }
 
+    // MARK: - Notifications
+
+    func toggleNotifications() {
+        guard isInstalled else { return }
+
+        if isNotifyEnabled {
+            // Disable: delete flag file
+            try? FileManager.default.removeItem(atPath: notifyFlagPath)
+            isNotifyEnabled = false
+        } else {
+            // Enable: create parent dir + flag file
+            let parentDir = (notifyFlagPath as NSString).deletingLastPathComponent
+            try? FileManager.default.createDirectory(
+                atPath: parentDir,
+                withIntermediateDirectories: true
+            )
+            FileManager.default.createFile(atPath: notifyFlagPath, contents: nil)
+            isNotifyEnabled = true
+        }
+    }
+
     // MARK: - Clean Up
 
     func cleanUp() {

@@ -8,6 +8,7 @@ final class AppViewModelCleanUpTests: XCTestCase {
     private var logFilePath: URL!
     private var stdoutPath: String!
     private var stderrPath: String!
+    private var notifyFlagPath: String!
 
     override func setUp() async throws {
         tmpDir = FileManager.default.temporaryDirectory
@@ -16,6 +17,7 @@ final class AppViewModelCleanUpTests: XCTestCase {
         logFilePath = tmpDir.appendingPathComponent("killmau.log")
         stdoutPath = tmpDir.appendingPathComponent("stdout.log").path
         stderrPath = tmpDir.appendingPathComponent("stderr.log").path
+        notifyFlagPath = tmpDir.appendingPathComponent("killmau-notify").path
     }
 
     override func tearDown() async throws {
@@ -28,6 +30,7 @@ final class AppViewModelCleanUpTests: XCTestCase {
             logFilePath: logFilePath,
             tmpStdoutPath: stdoutPath,
             tmpStderrPath: stderrPath,
+            notifyFlagPath: notifyFlagPath,
             performSetup: false
         )
     }
@@ -210,5 +213,64 @@ final class AppViewModelCleanUpTests: XCTestCase {
         XCTAssertTrue(vm.logEntries.isEmpty)
         XCTAssertEqual(vm.statusMessage, "Cleaned up successfully")
         XCTAssertFalse(vm.isBusy)
+    }
+
+    // MARK: - Toggle notifications
+
+    func test_toggleNotifications_createsFlag() {
+        let vm = makeViewModel()
+        vm.isInstalled = true
+        vm.isNotifyEnabled = false
+
+        vm.toggleNotifications()
+
+        XCTAssertTrue(FileManager.default.fileExists(atPath: notifyFlagPath),
+                      "Flag file should be created when toggling on")
+        XCTAssertTrue(vm.isNotifyEnabled)
+    }
+
+    func test_toggleNotifications_deletesFlag() {
+        FileManager.default.createFile(atPath: notifyFlagPath, contents: nil)
+        let vm = makeViewModel()
+        vm.isInstalled = true
+        vm.isNotifyEnabled = true
+
+        vm.toggleNotifications()
+
+        XCTAssertFalse(FileManager.default.fileExists(atPath: notifyFlagPath),
+                       "Flag file should be deleted when toggling off")
+        XCTAssertFalse(vm.isNotifyEnabled)
+    }
+
+    func test_toggleNotifications_blockedWhenNotInstalled() {
+        let vm = makeViewModel()
+        vm.isInstalled = false
+        vm.isNotifyEnabled = false
+
+        vm.toggleNotifications()
+
+        XCTAssertFalse(FileManager.default.fileExists(atPath: notifyFlagPath),
+                       "Should not create flag when not installed")
+        XCTAssertFalse(vm.isNotifyEnabled)
+    }
+
+    func test_toggleNotifications_createsParentDirectory() {
+        let nestedPath = tmpDir.appendingPathComponent("sub/dir/killmau-notify").path
+        let vm = AppViewModel(
+            installDir: tmpDir,
+            logFilePath: logFilePath,
+            tmpStdoutPath: stdoutPath,
+            tmpStderrPath: stderrPath,
+            notifyFlagPath: nestedPath,
+            performSetup: false
+        )
+        vm.isInstalled = true
+        vm.isNotifyEnabled = false
+
+        vm.toggleNotifications()
+
+        XCTAssertTrue(FileManager.default.fileExists(atPath: nestedPath),
+                      "Should create parent directories")
+        XCTAssertTrue(vm.isNotifyEnabled)
     }
 }
