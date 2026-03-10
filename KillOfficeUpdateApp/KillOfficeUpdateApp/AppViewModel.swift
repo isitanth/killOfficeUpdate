@@ -147,16 +147,23 @@ done
 
     func refreshStatus() {
         isInstalled = FileManager.default.fileExists(atPath: scriptPath.path)
+            && FileManager.default.fileExists(atPath: plistPath.path)
 
-        let launchctlResult = ShellExecutor.shell("launchctl list | grep killmau")
+        let launchctlResult = ShellExecutor.shell("launchctl list com.user.killmau 2>/dev/null")
         isEnabled = launchctlResult.exitCode == 0
-            && !launchctlResult.output.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
 
-        let pgrepResult = ShellExecutor.shell("pgrep -f kill_mau")
+        let pgrepResult = ShellExecutor.shell("pgrep -f '[k]ill_mau'")
         isRunning = pgrepResult.exitCode == 0
             && !pgrepResult.output.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
 
         isNotifyEnabled = FileManager.default.fileExists(atPath: notifyFlagPath)
+
+        // Auto-update on-disk script if it differs from the embedded version
+        if isInstalled,
+           let onDisk = try? String(contentsOf: scriptPath, encoding: .utf8),
+           onDisk != watchdogScript {
+            try? watchdogScript.write(to: scriptPath, atomically: true, encoding: .utf8)
+        }
 
         updateStatusMessage()
     }
@@ -262,7 +269,8 @@ done
             return
         }
 
-        // 6. Load LaunchAgent
+        // 6. Load LaunchAgent (unload first to handle reinstall/update)
+        _ = ShellExecutor.shell("launchctl unload \"\(plistPath.path)\" 2>/dev/null; true")
         let loadResult = ShellExecutor.shell("launchctl load -w \"\(plistPath.path)\"")
         if loadResult.exitCode != 0 {
             statusMessage = "Failed to load LaunchAgent: \(loadResult.output)"
@@ -291,17 +299,24 @@ done
         isBusy = true
         statusMessage = "Uninstalling..."
 
-        // 1. Unload LaunchAgent and delete plist
-        _ = ShellExecutor.shell("launchctl unload \"\(plistPath.path)\" 2>/dev/null; true")
+        // 1. Unload LaunchAgent (with -w to write disabled override) and delete plist
+        _ = ShellExecutor.shell("launchctl unload -w \"\(plistPath.path)\" 2>/dev/null; true")
         try? FileManager.default.removeItem(at: plistPath)
 
         // 2. Kill running watchdog
-        _ = ShellExecutor.shell("pkill -f kill_mau.sh 2>/dev/null; true")
+        _ = ShellExecutor.shell("pkill -f '[k]ill_mau.sh' 2>/dev/null; true")
 
         // 3. Delete script file
         try? FileManager.default.removeItem(at: scriptPath)
 
-        // 4. Re-enable Microsoft auto-update agent
+        // 4. Clean up leftover files (log, temp files, notify flag)
+        try? FileManager.default.removeItem(at: logFilePath)
+        try? FileManager.default.removeItem(atPath: tmpStdoutPath)
+        try? FileManager.default.removeItem(atPath: tmpStderrPath)
+        try? FileManager.default.removeItem(atPath: notifyFlagPath)
+        logEntries = []
+
+        // 5. Re-enable Microsoft auto-update agent
         let msAgentPlist = launchAgentsDir.appendingPathComponent(
             "com.microsoft.update.agent.plist"
         ).path
@@ -309,9 +324,9 @@ done
             _ = ShellExecutor.shell("launchctl load -w \"\(msAgentPlist)\" 2>/dev/null; true")
         }
 
-        // 5. Finalize
+        // 6. Finalize
         refreshStatus()
-        statusMessage = "Uninstalled. Microsoft AutoUpdate re-enabled."
+        statusMessage = "Uninstalled."
         isBusy = false
     }
 
@@ -334,7 +349,7 @@ done
         statusMessage = "Disabling..."
 
         _ = ShellExecutor.shell("launchctl unload -w \"\(plistPath.path)\" 2>/dev/null; true")
-        _ = ShellExecutor.shell("pkill -f kill_mau.sh 2>/dev/null; true")
+        _ = ShellExecutor.shell("pkill -f '[k]ill_mau.sh' 2>/dev/null; true")
         refreshStatus()
 
         isBusy = false
