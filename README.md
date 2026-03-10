@@ -4,6 +4,10 @@ A macOS app that kills Microsoft AutoUpdate on sight.
 
 A background watchdog polls every 3 seconds, catches `Microsoft AutoUpdate` and `Microsoft Update Assistant`, and `kill -9`s them before they can nag you. Works even when the app is closed.
 
+<p align="center">
+  <img src="assets/screenshot.png" alt="KillOfficeUpdate" width="400">
+</p>
+
 ## Install
 
 1. Download the DMG from [GitHub Releases](https://github.com/isitanth/killOfficeUpdate/releases).
