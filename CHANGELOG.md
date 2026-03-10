@@ -1,5 +1,12 @@
 # Changelog
 
+## v1.1.1
+
+### Changes
+- Added application screenshot to README
+- Removed legacy shell scripts (bundled in app binary)
+- Added README with install, build, and uninstall instructions
+
 ## v1.1.0
 
 ### New Features
