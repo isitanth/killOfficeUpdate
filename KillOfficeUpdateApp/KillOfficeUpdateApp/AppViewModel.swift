@@ -46,11 +46,18 @@ TARGETS=(
 )
 POLL_INTERVAL=3
 LOG_FILE="${HOME}/.local/log/killmau.log"
+NOTIFY_FLAG="${HOME}/.local/etc/killmau-notify"
 
 mkdir -p "$(dirname "$LOG_FILE")"
 
 log() {
     printf '[%s] %s\\n' "$(date '+%Y-%m-%d %H:%M:%S')" "$1" >> "$LOG_FILE"
+}
+
+notify() {
+    if [[ -f "$NOTIFY_FLAG" ]]; then
+        osascript -e "display notification \\"$1\\" with title \\"KillOfficeUpdate\\"" 2>/dev/null
+    fi
 }
 
 log "Watchdog started (PID $$)"
@@ -60,7 +67,10 @@ while true; do
         pids=$(pgrep -f "$target" 2>/dev/null)
         if [[ -n "$pids" ]]; then
             while IFS= read -r pid; do
-                kill -9 "$pid" 2>/dev/null && log "Killed ${target} (PID ${pid})"
+                if kill -9 "$pid" 2>/dev/null; then
+                    log "Killed ${target} (PID ${pid})"
+                    notify "Killed ${target} (PID ${pid})"
+                fi
             done <<< "$pids"
         fi
     done
