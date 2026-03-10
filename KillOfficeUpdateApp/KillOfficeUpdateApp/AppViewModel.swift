@@ -13,6 +13,7 @@ final class AppViewModel: ObservableObject {
     let logFilePath: URL
     let tmpStdoutPath: String
     let tmpStderrPath: String
+    let notifyFlagPath: String
 
     var scriptPath: URL { installDir.appendingPathComponent(scriptName) }
     var plistPath: URL { launchAgentsDir.appendingPathComponent(plistName) }
@@ -25,6 +26,7 @@ final class AppViewModel: ObservableObject {
     @Published var logEntries: [String] = []
     @Published var statusMessage: String = "Checking..."
     @Published var isBusy: Bool = false
+    @Published var isNotifyEnabled: Bool = false
 
     // MARK: - Polling / Log watching
 
@@ -106,6 +108,8 @@ done
             .appendingPathComponent(".local/log/killmau.log"),
         tmpStdoutPath: String = "/tmp/killmau.stdout.log",
         tmpStderrPath: String = "/tmp/killmau.stderr.log",
+        notifyFlagPath: String = FileManager.default.homeDirectoryForCurrentUser
+            .appendingPathComponent(".local/etc/killmau-notify").path,
         performSetup: Bool = true
     ) {
         self.installDir = installDir
@@ -115,6 +119,7 @@ done
         self.logFilePath = logFilePath
         self.tmpStdoutPath = tmpStdoutPath
         self.tmpStderrPath = tmpStderrPath
+        self.notifyFlagPath = notifyFlagPath
 
         if performSetup {
             refreshStatus()
