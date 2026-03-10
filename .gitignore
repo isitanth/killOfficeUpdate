@@ -11,5 +11,8 @@ xcuserdata/
 # Local Claude settings
 .claude/*.local.*
 
+# Nights Watch logs
+logs/
+
 # OS
 .DS_Store
